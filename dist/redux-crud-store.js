@@ -9415,7 +9415,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    case _actionTypes.DELETE_SUCCESS:
 	      return state.delete(id.toString());
 	    case _actionTypes.GARBAGE_COLLECT:
-	      var tenMinutesAgo = action.meta.now - 10 * 60 * 1000;
+	      var tenMinutesAgo = action.meta.now - 12 * 60 * 60 * 1000;
 	      return state.filter(function (record, _id) {
 	        return record.get('fetchTime') > tenMinutesAgo;
 	      });
@@ -9484,7 +9484,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 
 	    case _actionTypes.GARBAGE_COLLECT:
-	      var tenMinutesAgo = action.meta.now - 10 * 60 * 1000;
+	      var tenMinutesAgo = action.meta.now - 12 * 60 * 60 * 1000;
 	      return state.filter(function (collection) {
 	        return collection.get('fetchTime') > tenMinutesAgo || collection.get('fetchTime') === null;
 	      });
@@ -9657,11 +9657,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      switch (_context.prev = _context.next) {
 	        case 0:
 	          _context.next = 2;
-	          return (0, _effects.call)(delay, 10 * 60 * 1000);
+	          return (0, _effects.call)(delay, 12 * 60 * 60 * 1000);
 
 	        case 2:
 	          _context.next = 4;
-	          return (0, _effects.call)(delay, 5 * 60 * 1000);
+	          return (0, _effects.call)(delay, 12 * 60 * 60 * 1000);
 
 	        case 4:
 	          _context.next = 6;
@@ -9884,7 +9884,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  if (fetchTime === null) return false;
 
-	  var interval = opts.interval || 10 * 60 * 1000; // ten minutes
+	  var interval = opts.interval || 12 * 60 * 60 * 1000; // ten minutes
 
 	  return Date.now() - interval < fetchTime;
 	}
