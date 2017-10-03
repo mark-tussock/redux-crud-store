@@ -18,9 +18,9 @@ import type { CrudAction } from './actionTypes'
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 function* garbageCollector() {
-  yield call(delay, 10 * 60 * 1000) // initial 10 minute delay
+  yield call(delay, 12 * 60 * 60 * 1000) // initial 10 minute delay
   for (;;) {
-    yield call(delay, 5 * 60 * 1000) // every 5 minutes thereafter
+    yield call(delay, 12 * 60 * 60 * 1000) // every 5 minutes thereafter
     yield put({ type: GARBAGE_COLLECT, meta: { now: Date.now() } })
   }
 }

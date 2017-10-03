@@ -35,7 +35,7 @@ export type SelectorOpts = {
 function recent(fetchTime, opts: SelectorOpts = {}) {
   if (fetchTime === null) return false
 
-  const interval = opts.interval || 10 * 60 * 1000 // ten minutes
+  const interval = opts.interval || 12 * 60 * 60 * 1000 // ten minutes
 
   return Date.now() - interval < fetchTime
 }

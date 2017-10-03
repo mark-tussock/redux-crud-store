@@ -92,7 +92,7 @@ function byIdReducer(state = byIdInitialState, action) {
     case DELETE_SUCCESS:
       return state.delete(id.toString())
     case GARBAGE_COLLECT:
-      const tenMinutesAgo = action.meta.now - 10 * 60 * 1000
+      const tenMinutesAgo = action.meta.now - 12 * 60 * 60 * 1000
       return state.filter((record, _id) => (
         record.get('fetchTime') > tenMinutesAgo
       ))
@@ -154,7 +154,7 @@ function collectionsReducer(state = collectionsInitialState, action) {
       ))
 
     case GARBAGE_COLLECT:
-      const tenMinutesAgo = action.meta.now - 10 * 60 * 1000
+      const tenMinutesAgo = action.meta.now - 12 * 60 * 60 * 1000
       return state.filter(collection => (
         collection.get('fetchTime') > tenMinutesAgo ||
           collection.get('fetchTime') === null

@@ -95,7 +95,7 @@ function byIdReducer() {
     case _actionTypes.DELETE_SUCCESS:
       return state.delete(id.toString());
     case _actionTypes.GARBAGE_COLLECT:
-      var tenMinutesAgo = action.meta.now - 10 * 60 * 1000;
+      var tenMinutesAgo = action.meta.now - 12 * 60 * 60 * 1000;
       return state.filter(function (record, _id) {
         return record.get('fetchTime') > tenMinutesAgo;
       });
@@ -164,7 +164,7 @@ function collectionsReducer() {
       });
 
     case _actionTypes.GARBAGE_COLLECT:
-      var tenMinutesAgo = action.meta.now - 10 * 60 * 1000;
+      var tenMinutesAgo = action.meta.now - 12 * 60 * 60 * 1000;
       return state.filter(function (collection) {
         return collection.get('fetchTime') > tenMinutesAgo || collection.get('fetchTime') === null;
       });
